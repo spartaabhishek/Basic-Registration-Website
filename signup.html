@@ -16,7 +16,7 @@
             .watermark
             {
                 color: #1e2635;
-                font-size: 20em;
+                font-size: 10em;
                 transform: rotate(90deg);
                 user-select: none;
                 position: fixed;
@@ -115,17 +115,17 @@
         </style>
     </head>
     <body>
-        <h1 class="watermark">SIGNUP</h1>
+        <h1 class="watermark"><pre>SIGNUP</pre></h1>
 
         <div class="container">
             <p style="font-size: 30px; font-weight: bold;">Sign Up</p>
             <form action='/signup' method='POST' style="display:contents">
-            <input class="text" type="text" name="name" placeholder="First Name" style="margin-top: 130px;" required>
+            <input class="text" type="text" name="name" placeholder="Username" style="margin-top: 130px;" required>
 
-            <input class="text" type="email" name="username" placeholder="Last Name" style="margin-top: 185px;" required>
-            <input class="text" type="password" name="password" placeholder="Password" style="margin-top: 240px;" required>
+            <input class="text" type="email" name="email" placeholder="Email" style="margin-top: 185px;" required>
+            <input class="text" type="password" name="password1" placeholder="Password" style="margin-top: 240px;" required>
             
-            <input class="text" type="password" name="password" placeholder="Confirm Password" style="margin-top: 295px;" required>
+            <input class="text" type="password" name="password2" placeholder="Confirm Password" style="margin-top: 295px;" required>
             <label></label>
            
             <input   type="checkbox" style="margin-top: 360px; position: absolute;  margin-left: -24em; font-size: 12px;" required>
@@ -137,6 +137,7 @@
             
         </div>
 
-        <div class="theme_switch"><i class="material-icons-outlined">wb_sunny</i></div>
+        <!--<div class="theme_switch"><i class="material-icons-outlined">wb_sunny</i></div> -->
+		<!--Button to change theme, potential future addition-->
     </body>
 </html>
