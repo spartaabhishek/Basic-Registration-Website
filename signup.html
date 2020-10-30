@@ -116,19 +116,19 @@
     </head>
     <body>
         <h1 class="watermark">SIGNUP</h1>
-
+        <form action="/signup.html" onsubmit = "return(validate());">
         <div class="container">
             <p style="font-size: 30px; font-weight: bold;">Sign Up</p>
             <form action='/signup' method='POST' style="display:contents">
             <input class="text" type="text" name="name" placeholder="First Name" style="margin-top: 130px;" required>
 
-            <input class="text" type="email" name="username" placeholder="Last Name" style="margin-top: 185px;" required>
-            <input class="text" type="password" name="password" placeholder="Password" style="margin-top: 240px;" required>
+            <input class="text" type="email" name="email" placeholder="Email" style="margin-top: 185px;" required>
+            <input class="text" id="password" type="password" name="password" placeholder="Password" style="margin-top: 240px;" required>
             
-            <input class="text" type="password" name="password" placeholder="Confirm Password" style="margin-top: 295px;" required>
+            <input class="text" id="repass" type="password" name="password" placeholder="Confirm Password" style="margin-top: 295px;" required>
             <label></label>
            
-            <input   type="checkbox" style="margin-top: 360px; position: absolute;  margin-left: -24em; font-size: 12px;" required>
+            <input id="check"  type="checkbox" style="margin-top: 360px; position: absolute;  margin-left: -24em; font-size: 12px;" required>
             <p style="margin-top: 360px; position: absolute;  margin-left: -15em; font-size: 12px;">Please select the <br> Check box.</p>
             <button   type="submit" name="submit" class="active_button" style="margin-top: 400px;">Sign Up</button>
             </form>
@@ -136,7 +136,53 @@
             <button class="sec_button" style="margin-top: 470px;">Sign In</button>
             
         </div>
-
         <div class="theme_switch"><i class="material-icons-outlined">wb_sunny</i></div>
+    
+    </form>
+        <script type = "text/javascript">
+            
+               
+               function validate() {
+                    var pass=document.getElementById("password").value;
+                    console.log(pass);
+                    var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+                    var repass=document.getElementById("repass").value;
+                    if(pass.match(decimal))
+                    {
+                        return true
+                    }
+                    else{
+                        alert("password between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character")
+                        return false
+                    }
+                    if(pass != repass ){
+                        alert("password doesnot match")
+                        return false
+                    }
+                    
+                    var emailID = document.getElementById("email").value;
+                    atpos = emailID.indexOf("@");
+                    dotpos = emailID.lastIndexOf(".");
+         
+                    if (atpos < 1 || ( dotpos - atpos < 2 )) {
+                        alert("Please enter correct email ID")
+                        document.myForm.EMail.focus() ;
+                        return false;
+                    }
+                    if(document.getElementById("check").checked)
+                    {
+                        return true;
+                    }
+                    else{
+                        alert("please select the check box");
+                        return false;
+                    }
+                    return(true)
+               }
+               
+         </script>
+    
+    
+    
     </body>
 </html>
